@@ -26,5 +26,5 @@ function c(){
 // })
 Promise.race([b(),a(),c()]).then(res=>{
     console.log(res)
-    // console.log(res[1])
+    console.log(res[1])
 })
