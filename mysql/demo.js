@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 }); 
  
 connection.connect();
- 
+var  sql = 'SELECT * FROM websites WHERE alexa=1';
 var  sql = 'SELECT * FROM websites WHERE alexa=1';
 //查
 connection.query(sql,function (err, result) {
