@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包</title>
+</head>
+
+<body>
+    <div>
+        <p onclick="result()">1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+    </div>
+    <script>
+        function f1() {
+            var N = 0; // N是f1函数的局部变量
+
+            function f2() {
+                // f2是f1函数的内部函数，是闭包
+                N += 1; // 内部函数f2中使用了外部函数f1中的变量N
+                console.log(N);
+            }
+
+            return f2;
+        }
+        var a = 9
+        f1 = ()=>{
+            //  a= 9
+            return ()=>{
+                // a += 1;
+                console.log(a);
+            }
+        }
+        var result = f1();
+        
+        result(); // 输出1
+        result(); // 输出2
+        result(); // 输出3
+        console.log(a)
+    </script>
+</body>
+
+</html>

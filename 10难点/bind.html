@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bind</title>
+</head>
+
+<body>
+    <script>
+        var user = {
+            greet: "Hello!",
+            greetUser: function (userName) {
+                console.log(this.greet + " " + userName);
+            }
+        };
+
+        var greetHola = user.greetUser.bind({
+            greet: "Hola"
+        });
+        var greetBonjour = user.greetUser.bind({
+            greet: "Bonjour"
+        });
+
+        greetHola("Rahul") // 输出"Hola Rahul"
+        greetBonjour("Rahul") // 输出"Bonjour Rahul"
+    </script>
+</body>
+
+</html>

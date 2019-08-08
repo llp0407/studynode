@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用闭包定义私有变量</title>
+</head>
+<div>
+        使用闭包定义私有变量
+</div>
+<body>
+    <script>
+        function Product() {
+            var name;
+
+            this.setName = function (value) {
+                name = value;
+            };
+
+            this.getName = function () {
+                return name;
+            };
+            console.log(this)
+        }
+
+        var p = new Product();
+        p.setName("Fundebug");
+
+        console.log(p.name); // 输出undefined
+        console.log(p.getName()); // 输出Fundebug
+    </script>
+</body>
+
+</html>

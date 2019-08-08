@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>apply</title>
+</head>
+
+<body>
+    <script>
+        var user = {
+            greet: "Hello!",
+            greetUser: function (userName) {
+                console.log(this.greet + " " + userName);
+            }
+        };
+
+        var greet1 = {
+            greet: "Hola"
+        };
+
+        user.greetUser.call(greet1, "Rahul"); // 输出"Hola Rahul"
+        user.greetUser.apply(greet1, ["Rahul"]); // 输出"Hola Rahul"
+    </script>
+</body>
+
+</html>
