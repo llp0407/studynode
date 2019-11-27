@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="expires" content="Sunday 22 July 2016 16:30 GMT" />
     <title>Document</title>
 </head>
 <style>
-    .box{
+    .box {
         margin: 0 auto;
         width: 300px;
         height: 300px;
@@ -15,15 +18,57 @@
         transition: all 3s ease-in-out;
         opacity: 1;
     }
-    .box:hover{
+
+    .box:hover {
         opacity: .5;
         width: 600px;
         height: 600px;
     }
 </style>
+
 <body>
     <div class="box">
         我我我我我哦我master
     </div>
+    <script>
+        function deepClone(obj) {
+            if (obj === null || typeof obj !== 'object') return obj;
+            var cpObj = obj instanceof Array ? [] : {}
+            for (var key in obj) cpObj[key] = deepClone(obj[key])
+            return cpObj
+        }
+        // console.log( deepClone([2,4,5,6]) )
+        let a = [2, 666, 56, 7]
+        console.log(2 < a.splice(1,1))
+        // let b = deepClone(a)
+        // a[2] = 5555
+        // console.log(a, b)
+        console.log(quickSort(a))
+
+        function quickSort(arr) {
+            //如果数组<=1则返回
+            if (arr.length <= 1) {
+                return arr;
+            }
+            //找基准
+            var num = Math.floor(arr.length / 2);
+            //把基准删除
+            var numVal = arr.splice(num, 1);
+            //定义左右数组
+            var left = [];
+            var right = [];
+            //比基准小的放在左，比基准大的放在右
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i] < numVal) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+            //递归
+            return quickSort(left).concat(numVal, quickSort(right));
+        }
+    </script>
 </body>
+
 </html>
